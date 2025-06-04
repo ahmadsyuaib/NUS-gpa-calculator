@@ -190,5 +190,19 @@ function updateGPA() {
   }
 }
 
+function addEntry(boxIndex) {
+  const newEntry = {
+    id: entryCounter++,
+    name: '',
+    gpa: 0.0,
+    credits: 4, // Changed from 2 to 4
+    su: false,
+  };
+
+  boxes[boxIndex].push(newEntry);
+  renderEntries(boxIndex);
+  updateGPA();
+}
+
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
