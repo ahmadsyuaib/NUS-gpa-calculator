@@ -16,11 +16,23 @@ function renderBoxes() {
   const grid = document.getElementById('boxGrid');
   grid.innerHTML = '';
 
+  // Define the titles for each box
+  const boxTitles = [
+    'Year 1 Sem 1',
+    'Year 1 Sem 2',
+    'Year 2 Sem 1',
+    'Year 2 Sem 2',
+    'Year 3 Sem 1',
+    'Year 3 Sem 2',
+    'Year 4 Sem 1',
+    'Year 4 Sem 2',
+  ];
+
   for (let i = 0; i < 8; i++) {
     const box = document.createElement('div');
     box.className = 'box';
     box.innerHTML = `
-            <div class="box-title">Box ${i + 1}</div>
+            <div class="box-title">${boxTitles[i]}</div>
             <div id="entries-${i}"></div>
             <button class="add-btn" onclick="addEntry(${i})">+</button>
         `;
