@@ -64,6 +64,26 @@ h1 {
     margin-bottom: 8px;
     border: 1px solid #e1e5f0;
     transition: all 0.3s ease;
+    display: flex;                /* Add this */
+    align-items: flex-start;      /* Add this */
+    gap: 12px;                    /* Add this for spacing between form groups */
+    flex-wrap: wrap; 
+}
+
+.entry .form-group {
+    margin-bottom: 0;             /* Remove bottom margin for horizontal layout */
+    margin-right: 8px;            /* Add right margin for spacing */
+    flex: 0 1 auto;               /* Allow shrinking/growing */
+}
+
+.entry .form-group label {
+    margin-bottom: 2px;           /* Reduce label spacing */
+    white-space: nowrap;          /* Prevent label wrapping */
+}
+
+.entry .delete-btn {
+    align-self: center;           /* Center delete button vertically */
+    margin-top: 0;                /* Remove top margin */
 }
 
 .entry:hover {
