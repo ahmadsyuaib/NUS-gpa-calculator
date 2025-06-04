@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -53,16 +53,16 @@ h1 {
     color: #333;
     text-align: center;
     padding-bottom: 8px;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid #1e3a8a;
 }
 
 /* Entry styling */
 .entry {
-    background: #f8f9ff;
+    background: #fff8f2;
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 8px;
-    border: 1px solid #e1e5f0;
+    border: 1px solid #ffd9b3;
     transition: all 0.3s ease;
     display: flex;                /* Add this */
     align-items: flex-start;      /* Add this */
@@ -88,7 +88,7 @@ h1 {
 
 .entry:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 4px 12px rgba(245, 158, 66, 0.15);
 }
 
 .entry .form-group input[type="text"] {
@@ -96,12 +96,28 @@ h1 {
     padding: 5px 8px;        /* Slightly reduce padding */
     min-width: 120px;        /* Optional: prevent too small input */
     max-width: 180px;        /* Optional: limit max width */
+    border: 1px solid #ffd9b3
+}
+
+.entry .form-group input[type="text"]:focus {
+    border-color: #f59e42;
+    box-shadow: 0 0 0 3px rgba(245, 158, 66, 0.1);
 }
 
 .entry .form-group label {
     font-size: 0.8rem;       /* Decrease Module Name label size */
     margin-bottom: 2px;
     white-space: nowrap;
+    color: #1e3a8a;
+}
+
+.entry .form-group select {
+    border: 1px solid #ffd9b3;
+}
+
+.entry .form-group select:focus {
+    border-color: #f59e42;
+    box-shadow: 0 0 0 3px rgba(245, 158, 66, 0.1);
 }
 
 .entry .form-group:nth-child(4) {
@@ -153,14 +169,14 @@ h1 {
     position: relative;
     width: 45px;
     height: 22px;
-    background: #ddd;
+    background: #ffd9b3;
     border-radius: 22px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .toggle.active {
-    background: #667eea;
+    background: #1e3a8a;
 }
 
 .toggle-switch {
@@ -180,7 +196,7 @@ h1 {
 
 /* Buttons */
 .delete-btn {
-    background: #ff4757;
+    background: #ff3742;
     color: white;
     border: none;
     border-radius: 5px;
@@ -203,8 +219,8 @@ h1 {
     bottom: unset;
     transform: none;
     z-index: 1;
-    background: #667eea;
-    color: white;
+    background: #1e3a8a;
+    color: #fff;
     border: none;
     border-radius: 50%;
     width: 35px;
@@ -212,13 +228,14 @@ h1 {
     font-size: 1.3rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 3px 10px rgba(30, 58, 138, 0.2);
 }
 
 .add-btn:hover {
-    background: #5a6fd8;
+    background: #f59e42;
+    color: #1e3a8a;
     transform: translateY(-2px); /* Only move up */
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 16px rgba(245, 158, 66, 0.3);
 }
 
 /* Results section */
@@ -235,7 +252,7 @@ h1 {
 .gpa-display {
     font-size: 3rem;
     font-weight: bold;
-    color: #667eea;
+    color: #f59e42;
     margin-bottom: 10px;
 }
 
@@ -247,16 +264,16 @@ h1 {
 }
 
 .stat {
-    background: #f8f9ff;
+    background: #f0f6ff;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #e1e5f0;
+    border: 1px solid #1e3a8a;
 }
 
 .stat-value {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #1e3a8a;
 }
 
 .stat-label {
@@ -268,11 +285,11 @@ h1 {
 /* Warning message */
 .warning {
     background: #fff3cd;
-    color: #856404;
+    color: #b45309;
     padding: 10px;
     border-radius: 6px;
     margin-top: 15px;
-    border: 1px solid #ffeaa7;
+    border: 1px solid #f59e42;
 }
 
 /* Responsive design */
