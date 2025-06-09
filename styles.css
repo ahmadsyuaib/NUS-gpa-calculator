@@ -374,3 +374,27 @@ h1 {
         min-height: 180px;
     }
 }
+
+.file-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.file-actions button {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin: 0 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.file-actions button:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 66, 0.2);
+}
