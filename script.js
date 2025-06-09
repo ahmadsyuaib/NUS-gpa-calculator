@@ -94,6 +94,14 @@ function renderEntries(boxIndex) {
   });
 }
 
+/** Clears all entries and resets displayed values. */
+function resetCalculator() {
+  boxes = [[], [], [], [], [], [], [], []];
+  entryCounter = 0;
+  renderBoxes();
+  updateGPA();
+}
+
 // Generate GPA dropdown options
 function generateGPAOptions(selectedGPA) {
   let options = '';
