@@ -105,6 +105,45 @@ function renderEntries(boxIndex) {
   });
 }
 
+/** Save current data to JSON file */
+function saveDataAsJSON() {
+  const dataStr = JSON.stringify(boxes, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'gpa_data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/** Handle file upload and load JSON data */
+document
+  .getElementById('jsonFileInput')
+  .addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      try {
+        const data = JSON.parse(event.target.result);
+        if (Array.isArray(data)) {
+          boxes = data;
+          renderBoxes();
+          updateGPA();
+        } else {
+          alert('Invalid data format in JSON!');
+        }
+      } catch (err) {
+        alert('Invalid JSON file!');
+      }
+    };
+
+    reader.readAsText(file);
+  });
+
 /** Clears all entries and resets displayed values. */
 function resetCalculator() {
   boxes = [[], [], [], [], [], [], [], []];

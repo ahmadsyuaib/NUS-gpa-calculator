@@ -5,9 +5,14 @@
     box-sizing: border-box;
 }
 
+:root {
+  --color-primary: #1e3a8a;   /* NUS dark blue */
+  --color-accent:  #f59e42;   /* NUS bright orange */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3a8a 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -53,7 +58,7 @@ h1 {
     color: #333;
     text-align: center;
     padding-bottom: 8px;
-    border-bottom: 2px solid #1e3a8a;
+    border-bottom: 2px solid var(--color-primary);
 }
 
 /* Position the reset button or style as needed */
@@ -235,7 +240,7 @@ h1 {
 }
 
 .delete-btn:hover {
-    background: #ff3742;
+    background: #ff2f2f;
 }
 
 .add-btn {
@@ -259,8 +264,8 @@ h1 {
 }
 
 .add-btn:hover {
-    background: #f59e42;
-    color: #1e3a8a;
+    background: var(--color-accent);
+    color: var(--color-primary);
     transform: translateY(-2px); /* Only move up */
     box-shadow: 0 6px 16px rgba(245, 158, 66, 0.3);
 }
@@ -298,7 +303,7 @@ h1 {
 .gpa-display {
     font-size: 3rem;
     font-weight: bold;
-    color: #f59e42;
+    color: var(--color-accent);
     margin-bottom: 10px;
 }
 
@@ -335,7 +340,7 @@ h1 {
     padding: 10px;
     border-radius: 6px;
     margin-top: 15px;
-    border: 1px solid #f59e42;
+    border: 1px solid var(--color-accent);
 }
 
 /* Responsive design */
