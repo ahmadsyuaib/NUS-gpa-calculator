@@ -86,6 +86,11 @@ h1 {
     margin-top: 0;                /* Remove top margin */
 }
 
+.entry-empty {
+  opacity: 0.5;
+  pointer-events: auto; /* Optional: disable interaction */
+}
+
 .entry:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(245, 158, 66, 0.15);

@@ -41,7 +41,11 @@ function renderBoxes() {
   }
 }
 
-// Render entries for a specific box
+function isEntryFilled(entry) {
+  // Only check if module name is filled
+  return entry.name.trim() !== '';
+}
+
 function renderEntries(boxIndex) {
   const container = document.getElementById(`entries-${boxIndex}`);
   container.innerHTML = '';
@@ -49,41 +53,43 @@ function renderEntries(boxIndex) {
   boxes[boxIndex].forEach((entry, entryIndex) => {
     const entryDiv = document.createElement('div');
     entryDiv.className = 'entry';
+
+    // If module name is empty, grey out the entry
+    if (!isEntryFilled(entry)) {
+      entryDiv.classList.add('entry-empty');
+    } else {
+      entryDiv.classList.remove('entry-empty');
+    }
+
     entryDiv.innerHTML = `
-            <div class="form-group">
-                <label>Module Name</label>
-                <input type="text" value="${
-                  entry.name
-                }" onchange="updateEntry(${boxIndex}, ${entryIndex}, 'name', this.value)">
-            </div>
-            
-            <div class="form-group">
-                <label>GPA</label>
-                <select onchange="updateEntry(${boxIndex}, ${entryIndex}, 'gpa', parseFloat(this.value))">
-                    ${generateGPAOptions(entry.gpa)}
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>Credits</label>
-                <select onchange="updateEntry(${boxIndex}, ${entryIndex}, 'credits', parseInt(this.value))">
-                    ${generateCreditOptions(entry.credits)}
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <div class="toggle-container">
-                    <label>S/U</label>
-                    <div class="toggle ${
-                      entry.su ? 'active' : ''
-                    }" onclick="toggleSU(${boxIndex}, ${entryIndex})">
-                        <div class="toggle-switch"></div>
-                    </div>
+        <div class="form-group">
+            <label>Module Name</label>
+            <input type="text" value="${entry.name}"
+                   onchange="updateEntry(${boxIndex}, ${entryIndex}, 'name', this.value)">
+        </div>
+        <div class="form-group">
+            <label>GPA</label>
+            <select onchange="updateEntry(${boxIndex}, ${entryIndex}, 'gpa', parseFloat(this.value))">
+                ${generateGPAOptions(entry.gpa)}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Credits</label>
+            <select onchange="updateEntry(${boxIndex}, ${entryIndex}, 'credits', parseInt(this.value))">
+                ${generateCreditOptions(entry.credits)}
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="toggle-container">
+                <label>S/U</label>
+                <div class="toggle ${entry.su ? 'active' : ''}" 
+                     onclick="toggleSU(${boxIndex}, ${entryIndex})">
+                    <div class="toggle-switch"></div>
                 </div>
             </div>
-            
-            <button class="delete-btn" onclick="deleteEntry(${boxIndex}, ${entryIndex})">Delete</button>
-        `;
+        </div>
+        <button class="delete-btn" onclick="deleteEntry(${boxIndex}, ${entryIndex})">Delete</button>
+    `;
     container.appendChild(entryDiv);
   });
 }
@@ -125,7 +131,13 @@ function addEntry(boxIndex) {
 
 // Update entry data
 function updateEntry(boxIndex, entryIndex, field, value) {
+  // Update the entry data in boxes
   boxes[boxIndex][entryIndex][field] = value;
+
+  // Re-render so the style changes from greyed-out to normal
+  renderEntries(boxIndex);
+
+  // Update GPA stats
   updateGPA();
 }
 
