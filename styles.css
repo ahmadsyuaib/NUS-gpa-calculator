@@ -300,11 +300,25 @@ h1 {
     border: 1px solid rgba(255,255,255,0.2);
 }
 
+
 .gpa-display {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--color-accent);
     margin-bottom: 10px;
+    color: var(--color-accent)
+}
+
+/* GPA color conditions */
+.gpa-low {
+    color: #dc2626; /* red */
+}
+
+.gpa-normal {
+    color: var(--color-accent); /* original orange */
+}
+
+.gpa-high {
+    color: #22c55e; /* green */
 }
 
 .stats {

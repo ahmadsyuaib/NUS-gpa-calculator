@@ -233,6 +233,7 @@ function getCurrentSUCount() {
 }
 
 // Calculate and update GPA
+// Calculate and update GPA - Keep this version
 function updateGPA() {
   let totalGradePoints = 0;
   let totalGradedCredits = 0;
@@ -258,18 +259,27 @@ function updateGPA() {
     totalGradedCredits > 0 ? totalGradePoints / totalGradedCredits : 0;
 
   // Update display
-  document.getElementById('gpaDisplay').textContent = gpa.toFixed(2);
+  const gpaDisplay = document.getElementById('gpaDisplay');
+  gpaDisplay.textContent = gpa.toFixed(2);
+
+  // Update color based on GPA value
+  gpaDisplay.classList.remove('gpa-low', 'gpa-normal', 'gpa-high');
+  if (gpa <= 2.5) {
+    gpaDisplay.classList.add('gpa-low');
+  } else if (gpa >= 4.5) {
+    gpaDisplay.classList.add('gpa-high');
+  } else {
+    gpaDisplay.classList.add('gpa-normal');
+  }
+
+  // Update other stats
   document.getElementById('totalCredits').textContent = totalCredits;
   document.getElementById('gradedCredits').textContent = totalGradedCredits;
   document.getElementById('suCount').textContent = suCount;
 
   // Show/hide S/U warning
   const warning = document.getElementById('suWarning');
-  if (suCount >= 8) {
-    warning.style.display = 'block';
-  } else {
-    warning.style.display = 'none';
-  }
+  warning.style.display = suCount >= 8 ? 'block' : 'none';
 }
 
 function addEntry(boxIndex) {
