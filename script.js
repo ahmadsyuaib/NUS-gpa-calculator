@@ -11,12 +11,18 @@ function init() {
   updateGPA();
 }
 
-// Render all boxes
+function resetBox(semIndex) {
+  // Clear entries for just that semester
+  boxes[semIndex] = [];
+  renderEntries(semIndex);
+  updateGPA();
+}
+
+// Update renderBoxes to include the new button
 function renderBoxes() {
   const grid = document.getElementById('boxGrid');
   grid.innerHTML = '';
 
-  // Define the titles for each box
   const boxTitles = [
     'Year 1 Sem 1',
     'Year 1 Sem 2',
@@ -31,11 +37,16 @@ function renderBoxes() {
   for (let i = 0; i < 8; i++) {
     const box = document.createElement('div');
     box.className = 'box';
+
     box.innerHTML = `
-            <div class="box-title">${boxTitles[i]}</div>
-            <div id="entries-${i}"></div>
-            <button class="add-btn" onclick="addEntry(${i})">+</button>
-        `;
+      <div class="box-title">${boxTitles[i]}</div>
+      <div id="entries-${i}"></div>
+      <div class="box-actions">
+        <button class="add-btn" onclick="addEntry(${i})">+</button>
+        <button class="sem-reset-btn" onclick="resetBox(${i})">Reset Sem</button>
+      </div>
+    `;
+
     grid.appendChild(box);
     renderEntries(i);
   }
