@@ -276,6 +276,25 @@ h1 {
   color: var(--color-primary);
 }
 
+.reset-btn-inline {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.reset-btn-inline:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 66, 0.2);
+}
+
 .sem-reset-btn {
   background: #f97316;
   color: #fff;
