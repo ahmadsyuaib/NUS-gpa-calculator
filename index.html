@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">NUS GPA Calculator</div>
+        <div class="navbar-actions">
+            <button class="navbar-btn" onclick="toggleModal()">More Features</button>
+        </div>
+    </nav>
+    
+    <!-- Coming soon modal -->
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleModal()">&times;</span>
+            <h2>COMING SOON!</h2>
+            <p>New features are being developed. Check back later!</p>
+        </div>
+    </div>
+    
     <div class="container">
         <!-- Page name at the very top -->
         <h1 style="margin-bottom: 24px;">🎓 NUS GPA Calculator</h1>
@@ -46,6 +63,27 @@
             <button onclick="document.getElementById('jsonFileInput').click()">Upload Data file</button>
         </div>
     </div>
+    
+    <!-- Modal toggle function -->
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('comingSoonModal');
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "block";
+            }
+        }
+        
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('comingSoonModal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
