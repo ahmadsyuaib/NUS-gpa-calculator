@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NUS GPA Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation bar -->
     <nav class="navbar">
-        <div class="navbar-logo">Calculate Your GPA!</div>
+        <div class="navbar-logo">NUS GPA Calculator</div>
         <div class="navbar-actions">
-            <button class="navbar-btn" onclick="toggleModal()">More Features</button>
+            <button class="navbar-btn" onclick="toggleModal()"><i class="fas fa-puzzle-piece"></i> More Features</button>
         </div>
     </nav>
     
@@ -25,8 +27,8 @@
     </div>
     
     <div class="container">
-        <!-- Page name at the very top -->
-        <h1 style="margin-bottom: 24px;">🎓 NUS GPA Calculator</h1>
+        <!-- Removed redundant title -->
+        
         <!-- GPA display and stats -->
         <div class="results" style="margin-bottom: 24px;">
             <div class="gpa-display" id="gpaDisplay">0.00</div>
@@ -58,9 +60,9 @@
         </div>
 
         <div class="file-actions" style="text-align: center; margin-top: 20px;">
-            <button onclick="saveDataAsJSON()">Download Data file</button>
+            <button onclick="saveDataAsJSON()"><i class="fas fa-download"></i> Download Data</button>
             <input type="file" id="jsonFileInput" accept=".json" style="display:none" />
-            <button onclick="document.getElementById('jsonFileInput').click()">Upload Data file</button>
+            <button onclick="document.getElementById('jsonFileInput').click()"><i class="fas fa-upload"></i> Upload Data</button>
         </div>
     </div>
     
