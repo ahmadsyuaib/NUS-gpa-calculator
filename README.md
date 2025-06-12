@@ -70,6 +70,8 @@ A modern, intuitive web application for **National University of Singapore (NUS)
 
 Built with **pure HTML, CSS, and JavaScript** for maximum performance and compatibility. No login required, and all data is stored locally in your browser for privacy and convenience.
 
+**Deployment**: This application is deployed and hosted on **GitHub Pages** for easy access and reliable uptime.
+
 ---
 
 ## 🔮 Future Improvements
